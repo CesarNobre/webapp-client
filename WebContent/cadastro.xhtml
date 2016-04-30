@@ -1,18 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-<h:head>
-</h:head>
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head> <title>Login</title> </h:head>
 <h:body>
-	<h:form>
-	Nome <h:outputLabel value="#{usuarioBean.nome}" for="nome"/>
-		<h:inputText id="nome"/>
-		<h:commandButton value=“Salvar" action="#{cadastroBean.logar}" />
-	</h:form>
+<h:form>
+<h:panelGrid columns="2">
+	<h:outputLabel value="Nome" for="nome"/>
+	<h:inputText id="nome" value="#{usuarioBean.nome}"/>
+	<h:outputLabel value="Cpf" for="cpf"/>
+	<h:inputText id="cpf" value="#{usuarioBean.cpf}"/>
+	<h:outputLabel value="Sexo" for="sexo"/>
+	<h:selectOneRadio value="#{usuarioBean.genero}" id="sexo">
+		<f:selectItems value="#{usuarioBean.todosGeneros()}"
+		var="sexo"
+		itemLabel="#{sexo.nome}"
+		itemValue="#{sexo.id}"/>
+</h:selectOneRadio>
+<h:commandButton value="Salvar" action="#{usuarioBean.Salvar}" />
+	
+	
+	
+</h:panelGrid>
+</h:form>
 </h:body>
 </html>

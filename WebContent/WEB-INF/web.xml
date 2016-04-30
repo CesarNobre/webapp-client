@@ -51,4 +51,8 @@
 		<welcome-file>default.jsp</welcome-file>
 		<welcome-file>/axis2-web/index.jsp</welcome-file>
 	</welcome-file-list>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
 </web-app>
