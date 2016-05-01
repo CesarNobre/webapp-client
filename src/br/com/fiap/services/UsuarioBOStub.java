@@ -2617,90 +2617,6 @@
                             
 
                         /**
-                        * field for DataNascimento
-                        */
-
-                        
-                                    protected java.util.Calendar localDataNascimento ;
-                                
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localDataNascimentoTracker = false ;
-
-                           public boolean isDataNascimentoSpecified(){
-                               return localDataNascimentoTracker;
-                           }
-
-                           
-
-                           /**
-                           * Auto generated getter method
-                           * @return java.util.Calendar
-                           */
-                           public  java.util.Calendar getDataNascimento(){
-                               return localDataNascimento;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param DataNascimento
-                               */
-                               public void setDataNascimento(java.util.Calendar param){
-                            localDataNascimentoTracker = true;
-                                   
-                                            this.localDataNascimento=param;
-                                       
-
-                               }
-                            
-
-                        /**
-                        * field for Genero
-                        */
-
-                        
-                                    protected org.apache.axis2.databinding.types.UnsignedShort localGenero ;
-                                
-                           /*  This tracker boolean wil be used to detect whether the user called the set method
-                          *   for this attribute. It will be used to determine whether to include this field
-                           *   in the serialized XML
-                           */
-                           protected boolean localGeneroTracker = false ;
-
-                           public boolean isGeneroSpecified(){
-                               return localGeneroTracker;
-                           }
-
-                           
-
-                           /**
-                           * Auto generated getter method
-                           * @return org.apache.axis2.databinding.types.UnsignedShort
-                           */
-                           public  org.apache.axis2.databinding.types.UnsignedShort getGenero(){
-                               return localGenero;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param Genero
-                               */
-                               public void setGenero(org.apache.axis2.databinding.types.UnsignedShort param){
-                            localGeneroTracker = param != null;
-                                   
-                                            this.localGenero=param;
-                                       
-
-                               }
-                            
-
-                        /**
                         * field for Nome
                         */
 
@@ -2827,42 +2743,6 @@
 
                                         
                                                    xmlWriter.writeCharacters(localCpf);
-                                            
-                                          }
-                                    
-                                   xmlWriter.writeEndElement();
-                             } if (localDataNascimentoTracker){
-                                    namespace = "http://to.fiap.com.br/xsd";
-                                    writeStartElement(null, namespace, "dataNascimento", xmlWriter);
-                             
-
-                                          if (localDataNascimento==null){
-                                              // write the nil attribute
-                                              
-                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
-                                                  
-                                          }else{
-
-                                        
-                                                   xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localDataNascimento));
-                                            
-                                          }
-                                    
-                                   xmlWriter.writeEndElement();
-                             } if (localGeneroTracker){
-                                    namespace = "http://to.fiap.com.br/xsd";
-                                    writeStartElement(null, namespace, "genero", xmlWriter);
-                             
-
-                                          if (localGenero==null){
-                                              // write the nil attribute
-                                              
-                                                     throw new org.apache.axis2.databinding.ADBException("genero cannot be null!!");
-                                                  
-                                          }else{
-
-                                        
-                                                   xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localGenero));
                                             
                                           }
                                     
@@ -3082,21 +2962,6 @@
                                  
                                          elementList.add(localCpf==null?null:
                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCpf));
-                                    } if (localDataNascimentoTracker){
-                                      elementList.add(new javax.xml.namespace.QName("http://to.fiap.com.br/xsd",
-                                                                      "dataNascimento"));
-                                 
-                                         elementList.add(localDataNascimento==null?null:
-                                         org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localDataNascimento));
-                                    } if (localGeneroTracker){
-                                      elementList.add(new javax.xml.namespace.QName("http://to.fiap.com.br/xsd",
-                                                                      "genero"));
-                                 
-                                        if (localGenero != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localGenero));
-                                        } else {
-                                           throw new org.apache.axis2.databinding.ADBException("genero cannot be null!!");
-                                        }
                                     } if (localNomeTracker){
                                       elementList.add(new javax.xml.namespace.QName("http://to.fiap.com.br/xsd",
                                                                       "nome"));
@@ -3225,58 +3090,6 @@
                                            reader.getElementText(); // throw away text nodes if any.
                                        }
                                       
-                                        reader.next();
-                                    
-                              }  // End of if for expected property start element
-                                
-                                    else {
-                                        
-                                    }
-                                
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://to.fiap.com.br/xsd","dataNascimento").equals(reader.getName())){
-                                
-                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setDataNascimento(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToDateTime(content));
-                                            
-                                       } else {
-                                           
-                                           
-                                           reader.getElementText(); // throw away text nodes if any.
-                                       }
-                                      
-                                        reader.next();
-                                    
-                              }  // End of if for expected property start element
-                                
-                                    else {
-                                        
-                                    }
-                                
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://to.fiap.com.br/xsd","genero").equals(reader.getName())){
-                                
-                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"genero" +"  cannot be null");
-                                    }
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setGenero(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToUnsignedShort(content));
-                                              
                                         reader.next();
                                     
                               }  // End of if for expected property start element

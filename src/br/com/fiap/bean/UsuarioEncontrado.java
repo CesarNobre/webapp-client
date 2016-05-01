@@ -16,7 +16,16 @@ public class UsuarioEncontrado {
 	private String nome;
 	private String nomeUsuarioEncontrado;
 	private String cpf;
+	private int codigo;
 	
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
 	public String getNomeUsuarioEncontrado() {
 		return nomeUsuarioEncontrado;
 	}
@@ -53,7 +62,9 @@ public class UsuarioEncontrado {
 			UsuarioTO usuarioEncontrado = response.get_return();
 			
 			this.nomeUsuarioEncontrado = usuarioEncontrado.getNome();
-			this.cpf = usuarioEncontrado.getNome();
+			this.cpf = usuarioEncontrado.getCpf();
+			this.codigo = usuarioEncontrado.getCodigo();
+			
 		}catch(Exception ex){
 			this.nomeUsuarioEncontrado = "NÃO ENCONTRAMOS";
 		}

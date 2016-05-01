@@ -60,7 +60,7 @@ public class UsuarioBean {
 			UsuarioTO usuarioTO = new UsuarioTO();
 			usuarioTO.setNome(this.nome);
 			usuarioTO.setCpf(this.cpf);
-			usuarioTO.setDataNascimento(new GregorianCalendar(1999,10,1));
+			//usuarioTO.setDataNascimento(new GregorianCalendar(1999,10,1));
 			
 			InserirUsuario inserir = new InserirUsuario();
 			inserir.setUsuarioTO(usuarioTO);
