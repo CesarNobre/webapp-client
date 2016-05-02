@@ -2617,6 +2617,48 @@
                             
 
                         /**
+                        * field for Genero
+                        */
+
+                        
+                                    protected java.lang.String localGenero ;
+                                
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localGeneroTracker = false ;
+
+                           public boolean isGeneroSpecified(){
+                               return localGeneroTracker;
+                           }
+
+                           
+
+                           /**
+                           * Auto generated getter method
+                           * @return java.lang.String
+                           */
+                           public  java.lang.String getGenero(){
+                               return localGenero;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Genero
+                               */
+                               public void setGenero(java.lang.String param){
+                            localGeneroTracker = true;
+                                   
+                                            this.localGenero=param;
+                                       
+
+                               }
+                            
+
+                        /**
                         * field for Nome
                         */
 
@@ -2743,6 +2785,24 @@
 
                                         
                                                    xmlWriter.writeCharacters(localCpf);
+                                            
+                                          }
+                                    
+                                   xmlWriter.writeEndElement();
+                             } if (localGeneroTracker){
+                                    namespace = "http://to.fiap.com.br/xsd";
+                                    writeStartElement(null, namespace, "genero", xmlWriter);
+                             
+
+                                          if (localGenero==null){
+                                              // write the nil attribute
+                                              
+                                                     writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","nil","1",xmlWriter);
+                                                  
+                                          }else{
+
+                                        
+                                                   xmlWriter.writeCharacters(localGenero);
                                             
                                           }
                                     
@@ -2962,6 +3022,12 @@
                                  
                                          elementList.add(localCpf==null?null:
                                          org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCpf));
+                                    } if (localGeneroTracker){
+                                      elementList.add(new javax.xml.namespace.QName("http://to.fiap.com.br/xsd",
+                                                                      "genero"));
+                                 
+                                         elementList.add(localGenero==null?null:
+                                         org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localGenero));
                                     } if (localNomeTracker){
                                       elementList.add(new javax.xml.namespace.QName("http://to.fiap.com.br/xsd",
                                                                       "nome"));
@@ -3082,6 +3148,34 @@
                                     java.lang.String content = reader.getElementText();
                                     
                                               object.setCpf(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
+                                            
+                                       } else {
+                                           
+                                           
+                                           reader.getElementText(); // throw away text nodes if any.
+                                       }
+                                      
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                    else {
+                                        
+                                    }
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://to.fiap.com.br/xsd","genero").equals(reader.getName())){
+                                
+                                       nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                       if (!"true".equals(nillableValue) && !"1".equals(nillableValue)){
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setGenero(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                             
                                        } else {
