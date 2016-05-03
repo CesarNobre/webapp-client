@@ -32,7 +32,9 @@ public class main {
 	        	usuarioTO.setNome(scan.next());
 	        	System.out.println("Digite o cpf do novo usuario");
 	    		usuarioTO.setCpf(scan.next());	    		
-
+	    		System.out.println("Digite M para masculino e F para feminino");
+	    		usuarioTO.setGenero(scan.next());
+	    		
 	    		InserirUsuario inserir = new InserirUsuario();
 	    		inserir.setUsuarioTO(usuarioTO);
 	    		try {
